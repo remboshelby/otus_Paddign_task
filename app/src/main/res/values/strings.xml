@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">otus_Paddign_task</string>
+    <string name="server_url">https://dog.ceo/api/</string>
 </resources>
