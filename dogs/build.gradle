@@ -22,11 +22,26 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //Dagger
+    api 'com.google.dagger:dagger:2.16'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.16'
+    //ButterKnife
+    api 'com.jakewharton:butterknife:10.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+    //Modules
+    implementation project(':common')
+    // Paging library
+    implementation 'android.arch.paging:runtime:1.0.1'
+    // RxPagedListBuilder
+    implementation 'android.arch.paging:rxjava2:1.0.1'
     implementation 'com.android.support:appcompat-v7:28.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
