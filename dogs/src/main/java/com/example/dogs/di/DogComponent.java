@@ -1,4 +1,4 @@
-package com.example.dogs.fragments.di;
+package com.example.dogs.di;
 
 import com.example.common.di.CommonComponent;
 import com.example.dogs.fragments.DogListFragment;
