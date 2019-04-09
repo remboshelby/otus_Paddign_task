@@ -5,7 +5,7 @@ import com.example.dogs.fragments.DogListFragment;
 
 import dagger.BindsInstance;
 import dagger.Component;
-
+@DogScope
 @Component(dependencies = CommonComponent.class, modules = {DogModule.class})
 public interface DogComponent {
     void inject(DogListFragment dogListFragment);

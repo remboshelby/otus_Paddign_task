@@ -16,6 +16,7 @@ import dagger.Provides;
 @Module
 public class DogModule {
     @Provides
+    @DogScope
     public DogViewModel provideDogViewModel(DogListFragment host,
                                             final DogRepository dogRepository){
         return ViewModelProviders.of(host, new ViewModelProvider.Factory() {

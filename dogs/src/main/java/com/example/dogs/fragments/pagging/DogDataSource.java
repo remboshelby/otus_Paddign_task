@@ -1,6 +1,5 @@
 package com.example.dogs.fragments.pagging;
 
-import com.example.common.data.DogResponse;
 import com.example.common.network.repository.DogRepository;
 
 import java.util.List;
@@ -8,7 +7,6 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 import androidx.paging.PositionalDataSource;
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
@@ -28,9 +26,7 @@ public class DogDataSource extends PositionalDataSource<String> {
     @Override
     public void loadInitial(@NonNull LoadInitialParams params, @NonNull LoadInitialCallback<String> callback) {
 
-        dogRepository.createDogArray();
-
-        compositeDisposable.add(dogRepository.getDogs(params.requestedStartPosition, params.requestedLoadSize)
+        compositeDisposable.add(dogRepository.getDogs(params.requestedStartPosition, dogRepository.getDogCount())
         .observeOn(Schedulers.io())
         .subscribeOn(Schedulers.io())
                 .subscribe(new Consumer<List<String>>() {
